@@ -63,12 +63,13 @@ conda init zsh
 conda config --set auto_activate_base false
 
 step "Get CUDA"
-wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2204/x86_64/cuda-keyring_1.0-1_all.deb
+wget https://developer.download.nvidia.com/compute/cuda/repos/wsl-ubuntu/x86_64/cuda-keyring_1.0-1_all.deb
 sudo dpkg -i cuda-keyring_1.0-1_all.deb
 sudo apt update
 sudo apt install -y cuda
-sudo apt install -y libcudnn8 libcudnn8-dev
-sudo sed -E 's;PATH="?(.+)";PATH="/usr/local/cuda/bin:\1";g' -i /etc/environment
+# sudo apt install -y libcudnn8 libcudnn8-dev
+# sudo sed -E 's;PATH="?(.+)";PATH="/usr/local/cuda/bin:\1";g' -i /etc/environment
+echo $'export PATH="/usr/local/cuda/bin:$PATH"\n' >> $HOME/.zshrc
 
 step "Install Podman"
 sudo apt update
