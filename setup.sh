@@ -67,7 +67,7 @@ wget https://developer.download.nvidia.com/compute/cuda/repos/wsl-ubuntu/x86_64/
 sudo dpkg -i cuda-keyring_1.0-1_all.deb
 sudo apt update
 sudo apt install -y cuda
-echo $'export PATH="/usr/local/cuda/bin:$PATH"\n' >> $HOME/.zshrc
+echo 'export PATH="/usr/local/cuda/bin:$PATH"' >> $HOME/.zshrc
 
 step "Get cudnn"
 wget https://developer.download.nvidia.com/compute/redist/cudnn/v8.6.0/local_installers/11.8/cudnn-linux-x86_64-8.6.0.163_cuda11-archive.tar.xz
@@ -76,7 +76,8 @@ sudo cp cudnn-*-archive/include/cudnn*.h /usr/local/cuda/include
 sudo cp -P cudnn-*-archive/lib/libcudnn* /usr/local/cuda/lib64
 sudo chmod a+r /usr/local/cuda/include/cudnn*.h /usr/local/cuda/lib64/libcudnn*
 sudo ldconfig
-echo $'export LD_LIBRARY_PATH="/usr/lib/wsl/lib:$LD_LIBRARY_PATH"\n' >> $HOME/.zshrc
+echo 'export LD_LIBRARY_PATH="/usr/lib/wsl/lib:$LD_LIBRARY_PATH"' >> $HOME/.zshrc
+echo '' >> $HOME/.zshrc
 
 step "Install Podman"
 sudo apt update
