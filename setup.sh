@@ -79,6 +79,14 @@ sudo ldconfig
 echo 'export LD_LIBRARY_PATH="/usr/lib/wsl/lib:$LD_LIBRARY_PATH"' >> $HOME/.zshrc
 echo '' >> $HOME/.zshrc
 
+step "Install nodejs, yarn & bazelisk"
+curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash -
+sudo apt update
+sudo apt install -y nodejs
+sudo corepack enable
+yarn init -2
+sudo npm install -g @bazel/bazelisk
+
 step "Install Podman"
 sudo apt update
 sudo apt upgrade -y
