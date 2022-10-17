@@ -1,3 +1,5 @@
 miniconda.sh
 *.ttf
 *.otf
+*.deb
+cudnn*
